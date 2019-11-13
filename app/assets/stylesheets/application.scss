@@ -1,23 +1,13 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+    padding-bottom: 40px;
+}
 
- // Navigation bar styling
+// Navigation bar styling
 
  .navbar {
     background-image: linear-gradient(to right, #8860D0, #5680E9 , #5AB9EA);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     a {
         color: White !important;
     }
@@ -72,6 +62,8 @@
      }
  }
 
+ // Login formpage styling
+
  .login-container {
     width: 340px;
     .login-input {
@@ -123,3 +115,102 @@
         }
      }
  }
+
+ // ad New and Edit page styling
+
+ .ad-container {
+     width: 850px;
+     .ad-h1 {
+        color: #5AB9EA;
+        font-weight: bold;
+     }
+     .brand-ad {
+        margin-top: 8px;
+     }
+     .condition-ad {
+        margin-top: 8px;
+     }
+     .ad-input {
+        padding-left: 5px;
+        border-bottom: 2px solid #adadad !important;
+        border: none;
+        border-radius: 0%;
+        height: 45px;
+    }
+    .ad-input:focus {
+       outline: none !important;
+       box-shadow: none;
+       border-image-source: linear-gradient(to right, #5AB9EA, #5680E9, #8860D0);
+       border-width: 5pt;
+       border-image-slice: 1;
+    }
+    .ad-image-div {
+        display: block;
+       .custom-file-label {
+            padding-left: 5px;
+            border-bottom: 2px solid #adadad !important;
+            border: none;
+            border-radius: 0%;
+            height: 45px;
+            padding-top: 0.6rem;
+            color: #868685;
+            box-shadow: none;
+       }
+       .custom-file-label::after {
+           background: linear-gradient(to right, #5680E9, #8860D0);
+           color: white;
+           border-radius: 5px;
+       }
+       .custom-file-input {
+           margin-bottom: -15px;
+           box-shadow: none;
+           cursor: pointer;
+       }
+    }
+    .ad-submit {
+        width: 310px;
+        font-weight: 500;
+        text-transform: uppercase;
+        background-image: linear-gradient(to right, #5AB9EA, #5680E9, #8860D0);
+        border: none;
+        border-radius: 40px;
+        height: 46px;
+   }
+   .ad-render-link {
+       color: white;
+       position: relative;
+       top: 15px;
+       font-size: 18px;
+       font-weight: 500;
+       padding: 10px 50px 10px 50px;
+       border-radius: 30px;
+       margin-bottom: 30px;
+   } 
+   .ad-render-link:hover {
+       text-decoration: none;
+   }
+   .red {
+       position: relative;
+       left: 10px;
+       background-color: #5680E9;
+   }
+   .red:hover {
+       background-color: #dc3545;
+       transition-duration: 0.5s;
+   }
+   .grey {
+       background-color: #5680E9;
+   }
+   .grey:hover {
+       background-color: #6c757d;
+       transition-duration: 1s;
+   }
+   .ad-preview-thumb {
+       width: 150px;
+       height: 150px;
+       object-fit: cover;
+       margin-left: 10px;
+       margin-bottom: 10px;
+   }
+ }
+

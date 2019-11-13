@@ -1,77 +1,105 @@
 <div class="columns">
   <div class="column is-8 is-centered">
-
     <%= simple_form_for @ad, html: { multipart: true } do |f| %>
       <%= f.error_notification %>
 
-        <div class="columns">
-
-          <div class="field column is-9">
-            <div class="control">
-              <%= f.input :title , required: true, input_html: { class: "input"}, wrapper: false, label_html: { class:"label" } %>
-            </div>
-          </div>
-
-          <div class="field column">
-            <div class="control">
-              <%= f.input :price, required: true, input_html: { class:"input", maxlength: 7  }, wrapper: false, label_html: { class:"label" } %>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="field">
+      <div class="columns">
+        <div class="field column is-9">
           <div class="control">
-            <%= f.input_field :description, required: true, input_html: { class:"textarea" }, wrapper: false, label_html: { class:"label" } %>
+            <br />
+            <%= f.input_field :title , required: true, placeholder: '* Title', class: 'form-control ad-input', wrapper: false %>
           </div>
         </div>
+      </div>
 
-        <div class="field">
-          <div class="control">
-            <%= f.input :brand, required: true, input_html: { class:"input" }, wrapper: false, label_html: { class:"label" } %>
+      <br />
+      <div class="form-row">
+        <div class="col-7">
+          <br />
+          <%= f.input_field :brand, required: true, placeholder: '* Brand', class: 'form-control brand-ad ad-input', wrapper: false %>
+        </div>
+        <div class="col">
+          <%= f.input :price, required: true, placeholder: 'Price', input_html: { class: "form-control ad-input", maxlength: 7  }, wrapper: false, label_html: { class:"label" } %>
+        </div>
+        <div class="col">
+          <div class="control has-icons-left">
+            <br />
+            <span class="select">
+              <%= f.input_field :condition, collection: Ad::CONDITION, prompt: "Select condition", class: 'form-control condition-ad ad-input' %>
+            </span>
+            <span class="icon is-small is-left">
+              <i class="fa fa-paint-brush"></i>
+            </span>
           </div>
         </div>
+      </div>
 
-
-          <div class="field column is-4">
-            <div class="control">
-              <label class="label">Condition</label>
-              <div class="control has-icons-left">
-                <span class="select">
-                  <%= f.input_field :condition, collection: Ad::CONDITION, prompt: "Select condition" %>
-                </span>
-                <span class="icon is-small is-left">
-                  <i class="fa fa-paint-brush"></i>
-                </span>
-              </div>
-            </div>
-           </div>
-         </div>
-
-        <div class="field">
-          <div class="control">
-            <label class="label">Add images</label>
-              <div class="file">
-              <label class="file-label">
-                <%= f.input :image, as: :file, input_html: { class:"file-input ad-image" }, label: false, wrapper: false %>
-                  <span class="file-cta">
-                    <span class="file-icon"><i class="fa fa-upload"></i></span>
-                    <span class="file-label">Choose a file…</span>
-                  </span>
-              </label>
-              </div>
-            </div>
-          </div>
-          <output id="list"></output>
-        <hr />
-
-        <div class="field is-grouped">
-          <div class="control">
-            <%= f.button :submit, class: 'button is-warning' %>
-            <%= link_to 'Cancel', ads_path, class:'button is-light' %>
-          </div>
+      <br />
+      <div class="field">
+        <div class="control form-group">
+          <br />
+          <%= f.input_field :description, placeholder: 'Description',class: 'form-control desp-ad ad-input', rows: '3', required: true, input_html: { class:"textarea" }, wrapper: false, label_html: { class:"label" } %>
         </div>
+      </div>
 
-      <% end %>
+      <br />
+      <div class="custom-file ad-image-div">
+        <%= f.input :image, as: :file, type: 'file',id: 'customFile', input_html: { class:"custom-file-input ad-image" }, label: false, wrapper: false %>
+        <label class="custom-file-label" for="customFile">Add Images</label>
+      </div>
+      <br />
+
+      <output id="list"></output>
+      <hr />
+
+      <div class="field is-grouped">
+        <div class="control">
+          <%= f.button :submit, class: 'btn btn-primary ad-submit' %>
+        </div>
+      </div>
+
+    <% end %>
   </div>
 </div>
+
+<script>
+
+document.addEventListener("turbolinks:load", function() {
+
+  var adImage = document.querySelector('.ad-image');
+
+  function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+
+      // Only process image files.
+      if (!f.type.match('image.*')) {
+        continue;
+      }
+
+      var reader = new FileReader();
+
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+          // Render thumbnail.
+          var span = document.createElement('span');
+          span.innerHTML = ['<img class="ad-preview-thumb" src="', e.target.result,
+            '" title="', escape(theFile.name), '"/>'
+          ].join('');
+          document.getElementById('list').insertBefore(span, null);
+        };
+      })(f);
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);
+    }
+  }
+
+  if (adImage) {
+    this.addEventListener('change', handleFileSelect, false);
+  }
+
+});
+</script>

@@ -1,5 +1,8 @@
-<h1>New Ad</h1>
+<div class="container ad-container">
+    <h1 class="ad-h1">New Ad</h1>
 
-<%= render 'form', ad: @ad %>
+    <%= render 'form', ad: @ad %>
 
-<%= link_to 'Back', ads_path %>
+    <%= link_to 'Back', ads_path, class: 'ad-render-link grey' %>
+    <%= link_to 'Cancel', ads_path, class:'button is-light', class: 'ad-render-link red' %>
+</div>
