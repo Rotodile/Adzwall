@@ -1,3 +1,4 @@
+
 body {
     padding-bottom: 40px;
 }
@@ -17,7 +18,7 @@ body {
     }
  }
 
- // signup form page styling
+// signup form page styling
 
  .signup-container {
      width: 340px;
@@ -62,7 +63,7 @@ body {
      }
  }
 
- // Login formpage styling
+ // Login form page styling
 
  .login-container {
     width: 340px;
@@ -119,7 +120,6 @@ body {
  // ad New and Edit page styling
 
  .ad-container {
-     width: 850px;
      .ad-h1 {
         color: #5AB9EA;
         font-weight: bold;
@@ -214,3 +214,96 @@ body {
    }
  }
 
+ // Ad index page styling
+
+.ad-index-container {
+ .ad-index-header {
+     font-weight: 700;
+     color: #8860D0;
+ }
+
+ .ad-index-grid {
+    padding-top: 4px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    
+    .ad {
+      border-left: 0;
+      border-top: 0;
+      position: relative;
+      min-height: 375px;
+  
+      .title {
+        line-height: 1.6rem;
+      }
+      .price {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+
+    .ad-second {
+        .ad-index-soldby {
+            color: grey;
+        }
+        .ad-index-price {
+            padding-top: 2px;
+            float: right;
+        }
+    }
+  
+    .ad-thumb {
+      position: relative;
+      max-height: 150px;
+      overflow: hidden;
+  
+      img {
+        max-width: 100%;
+        width: 100%;
+        &:hover {
+          opacity: .9;
+        }
+      }
+  
+      .condition {
+        position: absolute;
+        bottom: 10px;
+        right: 9px;
+      }
+    }
+  }
+}
+
+.ad-index-container .ad-index-grid .ad a img {
+    display: block !important;
+    visibility: visible !important;
+}
+
+// Ad show page styling 
+
+.ad-show {
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    .feature-image img {
+      width: 100%;
+    }
+    .content {
+        margin-top: 20px;
+        background-color: whitesmoke;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 3px;
+        .show-desp-box {
+            margin-bottom: 40px;
+        }
+        h3 {
+            margin-bottom: 15px;
+        }
+    }
+    .second-col {
+        margin-top: 15px;
+    }
+  }

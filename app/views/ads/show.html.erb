@@ -1,29 +1,48 @@
-<p id="notice"><%= notice %></p>
+<section class="ad-show container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1><%= @ad.title %></h1>
 
-<p>
-  <strong>Brand:</strong>
-  <%= @ad.brand %>
-</p>
+      <div class="feature-image">
+        <%= image_tag(@ad.image_url(:default)) %>
+      </div>
 
-<p>
-  <strong>Condition:</strong>
-  <%= @ad.condition %>
-</p>
+      <div class="content">
 
-<p>
-  <strong>Title:</strong>
-  <%= @ad.title %>
-</p>
+        <div class="show-desp-box">
+          <h3>Description</h3>
+          <%= @ad.description %>
+        </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @ad.description %>
-</p>
+        <h3>Product Specs</h3>
 
-<p>
-  <strong>Price:</strong>
-  <%= @ad.price %>
-</p>
+        <table class="table is-narrow">
+          <% if @ad.condition %>
+            <tr>
+              <td><strong>Condition:</strong></td>
+              <td><%= @ad.condition %></td>
+            </tr>
+          <% end %>
 
-<%= link_to 'Edit', edit_ad_path(@ad) %> |
-<%= link_to 'Back', ads_path %>
+          <% if @ad.brand %>
+            <tr>
+              <td><strong>Brand:</strong></td>
+              <td><%= @ad.brand %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-md-4 second-col">
+      <div>
+        <h4 class="text-center"><%= number_to_currency(@ad.price) %></h4>
+        <p class="text-center">Sold by <%= @ad.user.name %></p>
+      </div>
+    </div>
+  </div>
+
+  <% if ad_author(@ad) %>
+    <%= link_to 'Edit', edit_ad_path(@ad), class: 'btn btn-primary' %>
+  <% end %>
+</section>

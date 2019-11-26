@@ -1,29 +1,30 @@
-<h1>Ads</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Brand</th>
-      <th>Condition</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container ad-index-container">
+  <h1 class="text-center ad-index-header">LATEST ADS</h1>
+  
+  <div class="ad-index-grid">
     <% @ads.each do |ad| %>
-      <tr>
-        <td><%= ad.brand %></td>
-        <td><%= ad.condition %></td>
-        <td><%= ad.title %></td>
-        <td><%= ad.description %></td>
-        <td><%= ad.price %></td>
-        <td><%= link_to 'Show', ad %></td>
-        <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
-        <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="ad">
+        <div class='ad-thumb'>
+          <%= link_to image_tag(ad.image_url(:thumb)), ad %>
+          <% if ad.condition? %>
+            <div class="condition">
+              <span><%= ad.condition %></span>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="ad-second">
+          <h3><%= ad.title %></h3>
+          <p class="ad-index-soldby">Sold by <%= ad.user.name %></p>
+          <p class="ad-index-price"><%= number_to_currency(ad.price) %></p>
+
+          <% if ad_author(ad) %>
+            <%= link_to "Edit", edit_ad_path(ad), class: 'btn btn-primary' %>
+            <%= link_to 'Delete', ad, method: :delete, data: { confirm: 'Are you sure ?'}, class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
