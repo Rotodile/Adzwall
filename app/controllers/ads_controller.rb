@@ -4,7 +4,11 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
-    @ads = Ad.all.order("created_at desc")
+    if params[:tag]
+      @ads = Ad.tagged_with(params[:tag])
+    else
+      @ads = Ad.all.order("created_at desc")\
+    end
   end
 
   # GET /ads/1
@@ -69,6 +73,6 @@ class AdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
-      params.require(:ad).permit(:brand, :condition, :title, :description, :price, :image)
+      params.require(:ad).permit(:brand, :condition, :title, :description, :price, :image, :tag_list)
     end
 end

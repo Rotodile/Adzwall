@@ -32,6 +32,7 @@ gem 'mini_magick', '~> 4.8'
 gem 'carrierwave'
 gem 'devise'
 gem 'simple_form'
+gem 'acts-as-taggable-on'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

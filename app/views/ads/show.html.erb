@@ -30,6 +30,10 @@
               <td><%= @ad.brand %></td>
             </tr>
           <% end %>
+            <tr>
+              <td><strong>Category:</strong></td>
+              <td><%= raw @ad.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
+            </tr>
         </table>
       </div>
     </div>

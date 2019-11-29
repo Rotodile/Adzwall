@@ -1,6 +1,11 @@
 <div class="container ad-index-container">
   <h1 class="text-center ad-index-header">LATEST ADS</h1>
   
+  <div id="tag_cloud">
+    <% tag_cloud Ad.tag_counts, %w[s m l] do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
+  </div>
   <div class="ad-index-grid">
     <% @ads.each do |ad| %>
       <div class="ad">
