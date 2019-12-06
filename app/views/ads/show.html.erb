@@ -46,6 +46,7 @@
     </div>
   </div>
 
+  <%= link_to bookmark_text, bookmarks_update_path(ad: @ad), id: 'bookmark_link', remote: true %>
   <% if ad_author(@ad) %>
     <%= link_to 'Edit', edit_ad_path(@ad), class: 'btn btn-primary' %>
   <% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'bookmarks/update'
   resources :ads
   devise_for :users, controllers: {
     registrations: 'registrations'

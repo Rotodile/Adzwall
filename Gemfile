@@ -33,6 +33,7 @@ gem 'carrierwave'
 gem 'devise'
 gem 'simple_form'
 gem 'acts-as-taggable-on'
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
