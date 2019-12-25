@@ -41,7 +41,14 @@
     <div class="col-md-4 second-col">
       <div>
         <h4 class="text-center"><%= number_to_currency(@ad.price) %></h4>
-        <p class="text-center">Sold by <%= @ad.user.name %></p>
+        <p class="text-center">Sold by <% if @other_user != current_user %>
+            <%= link_to(user_chats_path(current_user, :other_user => @other_user.id), method: :post) do %>
+              <%= @other_user.name %>
+            <% end %>
+          <% else %>
+            You
+          <% end %>
+        </p>
       </div>
     </div>
   </div>

@@ -15,3 +15,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require_tree ./channels
+//= require messages_form
+//= require channels/messages
+//= require channels/chats

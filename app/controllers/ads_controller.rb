@@ -15,6 +15,7 @@ class AdsController < ApplicationController
   # GET /ads/1.json
   def show
     @bookmark_exists = Bookmark.where(ad: @ad, user: current_user) == [] ? false : true
+    @other_user = @ad.user
   end
 
   # GET /ads/new

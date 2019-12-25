@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
-  get 'bookmarks/update'
-  resources :ads
-  devise_for :users, controllers: {
-    registrations: 'registrations'
-  }
+
+  mount ActionCable.server =>  '/cable'
+
   root 'store#index'
+
   get 'categories/:tag', to: 'ads#index', as: :tag
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'bookmarks/update'
+  get '/messages', to: 'chats#index'
+
+  resources :ads
+  resources :messages, only: [:create]
+
+  devise_for :users, controllers: {registrations:'registrations'}
+  resources :users do
+    resources :chats, only: [:index, :show, :create]
+  end
+  
 end
