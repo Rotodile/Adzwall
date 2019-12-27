@@ -1,20 +1,76 @@
 
 body {
     padding-bottom: 40px;
+    font-family: 'Catamaran', sans-serif;
 }
 
 // Navigation bar styling
 
  .navbar {
-    background-image: linear-gradient(to right, #8860D0, #5680E9 , #5AB9EA);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    a {
-        color: White !important;
+     position: fixed;
+     top: 0px;
+     right: 0px;
+     left: 0px;
+     z-index: 9;
+     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+     background-color: white;
+     height: 80px;
+    .nav-head {
+        margin-left: 4%;
     }
-
-    .dropdown-item {
-        color: black !important;
+    a {
+        color: #282C3F !important;
+        font-size: 14px !important;
+        letter-spacing: 0.3px !important;
+        border: none;
+        font-weight: 500 !important;
+        text-transform: uppercase;
+    }
+    .header-account {
+        padding-top: 23px;
+        left: 440px;
+        position: relative;
+        .nav-link {
+            font-weight: 600 !important;
+        }
+        .dropdown-menu {
+            left: -50px !important;
+        }
+    }
+    .cat-section {
+        margin: 0px 0px 0px 3.5%;
+        float: left;
+        height: 80px;
+        .cat {
+            padding: 30px 17px 0px 17px;
+            font-weight: 600 !important;
+            cursor: pointer;
+            height: 80px;
+        }
+        .cat:hover {
+            border-bottom: 3px solid red;
+        }
+    }
+    .header-search {
+        position: relative;
+        right: 170px;
+        .form-control {
+            width: 350px;
+            font-size: 14px;
+            border: 1px solid #F5F5F6;
+            background: #F5F5F6;
+            border-radius: 0 4px 4px 0;
+            outline: 0;
+            color: #696E79;
+            height: 20px;
+            padding: 20px 30px 20px 30px !important;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            outline: none;
+            border: 1px solid #EAEAEC;
+            background-color: white;
+        }
     }
  }
 
