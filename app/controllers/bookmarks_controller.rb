@@ -1,5 +1,4 @@
 class BookmarksController < ApplicationController
-  def update
     def update
         bookmark = Bookmark.where(ad: Ad.find(params[:ad]), user: current_user)
         if bookmark == []
@@ -14,5 +13,4 @@ class BookmarksController < ApplicationController
             format.js {}
         end
     end
-  end
 end

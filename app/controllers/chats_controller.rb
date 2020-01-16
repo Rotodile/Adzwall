@@ -23,7 +23,7 @@ class ChatsController < ApplicationController
       @message = Message.new
     end
 
-  private
+private
 
     def find_chat(second_user)
       chats = current_user.chats
