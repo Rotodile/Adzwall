@@ -100,8 +100,13 @@ body {
 // signup form page styling
 
  .signup-container {
-     width: 340px;
-     .signup-input {
+    width: 410px;
+    margin-top: 78px;
+    box-shadow: 0 2px 15px rgba(0,0,0,.1);
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 5px;
+    .signup-input {
          padding-left: 5px;
          border-bottom: 2px solid #adadad !important;
          border: none;
@@ -121,23 +126,23 @@ body {
          text-transform: uppercase;
          background-image: linear-gradient(to right, #5AB9EA, #5680E9, #8860D0);
          border: none;
-         border-radius: 40px;
          height: 46px;
      }
      .signup-header {
-        color: #5AB9EA;
-        font-weight: bold;
+        color: #868685;
+        font-weight: lighter;
      }
      .signup-render-link {
         margin-top: 40px;
         color: #868685;
+        font-size: 12px;
         a {
             color: #8860D0;
             font-weight: 500;
         }
         a:hover {
             text-decoration: none;
-            color: #5680E9;
+            color: #5AB9EA;
         }
      }
  }
@@ -145,7 +150,12 @@ body {
  // Login form page styling
 
  .login-container {
-    width: 340px;
+    width: 410px;
+    margin-top: 100px;
+    box-shadow: 0 2px 15px rgba(0,0,0,.1);
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 5px;
     .login-input {
         padding-left: 5px;
         border-bottom: 2px solid #adadad !important;
@@ -161,8 +171,8 @@ body {
        border-image-slice: 1;
     }
     .login-header {
-        color: #5AB9EA;
-        font-weight: bold;
+        color: #696E79;
+        font-weight: lighter;
     }
     .login-submit {
         width: 310px;
@@ -170,20 +180,23 @@ body {
         text-transform: uppercase;
         background-image: linear-gradient(to right, #5AB9EA, #5680E9, #8860D0);
         border: none;
-        border-radius: 40px;
         height: 46px;
+        margin-top: 20px;
     }
     .login-render-link {
         margin-top: 40px;
         color: #868685;
+        font-size: 12px;
+        width: max-content;
         a {
             color: #8860D0;
             font-weight: 500;
             margin-bottom: 20px;
+            margin-left: 30px;
         }
         a:hover {
             text-decoration: none;
-            color: #5680E9;
+            color: #5AB9EA;
         }
      }
      .user_remember_me {

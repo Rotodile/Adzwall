@@ -1,5 +1,15 @@
+<style>
+html {
+  height: 100%;
+}
+body {
+  background: linear-gradient(to bottom right, #c6e9fb, #d3c8e6);
+  position: relative;
+}
+</style>
+
 <div class='container text-center login-container'>
-  <h2 class="login-header">Log in</h2>
+  <h2 class="login-header">Login</h2>
   <br />
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
@@ -14,7 +24,6 @@
                 placeholder: 'Password',
                 input_html: { autocomplete: "current-password" }, class: 'form-control login-input' %>
       <br />
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     </div>
 
     <div class="form-actions">
@@ -22,5 +31,5 @@
     </div>
   <% end %>
 
-  <p class="login-render-link">Dont have an account? <%= render "devise/shared/links" %></p>
+  <p class="login-render-link"><%= render "devise/shared/links" %></p>
 </div>
