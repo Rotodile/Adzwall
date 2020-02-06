@@ -4,49 +4,46 @@
   </div>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <span class='navbar-nav cat-section'>
-          <li class="nav-item">
-            <a class='nav-link cat'>Vehicles</a>
-          </li>
-          <li class="nav-item">
-            <a class='nav-link cat'>Clothes</a>
-          </li>
-          <li class="nav-item">
-            <a class='nav-link cat'>Kids</a>
-          </li>
-          <li class="nav-item">
-            <a class='nav-link cat'>Animals</a>
-          </li>
-          <li class="nav-item">
-            <a class='nav-link cat'>Electronics</a>
-          </li>
-          <li class="nav-item">
-            <a class='nav-link cat'>Furniture</a>
-          </li>
-          <li class="nav-item">
-            <a class='nav-link cat'>Beauty</a>
-          </li>
-        </span>
-        <li class="nav-item dropdown header-account">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <span class='navbar-nav cat-section'>
+        <li class="nav-item">
+          <a class='nav-link cat'>Vehicles</a>
+        </li>
+        <li class="nav-item">
+          <a class='nav-link cat'>Clothes</a>
+        </li>
+        <li class="nav-item">
+          <a class='nav-link cat'>Kids</a>
+        </li>
+        <li class="nav-item">
+          <a class='nav-link cat'>Animals</a>
+        </li>
+        <li class="nav-item">
+          <a class='nav-link cat'>Electronics</a>
+        </li>
+        <li class="nav-item">
+          <a class='nav-link cat'>Furniture</a>
+        </li>
+        <li class="nav-item">
+          <a class='nav-link cat'>Beauty</a>
+        </li>
+      </span>
+      <li class="nav-item dropdown header-account">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if user_signed_in? %>
             <%= link_to 'Account Settings', edit_user_registration_path, class: 'dropdown-item' %>
             <%= link_to 'New Ad', new_ad_path, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %>
-        </li>
-      <% end %>
+          <% else %>
+            <%= link_to 'Sign In', new_user_session_path, class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Create Account', new_user_registration_path, class: 'dropdown-item' %>
+          <% end %>
+        </div>
+      </li>
     </ul>
   </div>
   <form class="form-inline my-2 my-lg-0 header-search">

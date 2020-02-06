@@ -97,11 +97,17 @@ body {
     }
  }
 
+ @media screen and (max-width: 650px) {
+    .header-search {
+        right: 0px !important;
+    }
+}
+
 // signup form page styling
 
  .signup-container {
     width: 410px;
-    margin-top: 78px;
+    margin-top: 70px;
     box-shadow: 0 2px 15px rgba(0,0,0,.1);
     padding: 50px;
     background-color: #fff;
