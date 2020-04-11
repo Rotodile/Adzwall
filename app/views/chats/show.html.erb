@@ -5,10 +5,10 @@
             <div id="messages">
                 <%= render partial: 'messages/message', collection: @chat.messages.order(id: :asc)%>
             </div>
-        <%else%>
+        <% else %>
             <div id="messages">
             </div>
-        <%end%>
+        <% end %>
     </div>
     <%= render partial: 'messages/message_form', locals: {message: @message, chat: @chat}%>
 </div>

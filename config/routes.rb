@@ -14,6 +14,5 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations:'registrations'}
   resources :users do
     resources :chats, only: [:index, :show, :create]
-  end
-  
+  end 
 end
