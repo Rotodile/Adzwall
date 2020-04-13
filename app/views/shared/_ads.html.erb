@@ -15,6 +15,7 @@
                 <h3><%= ad.title %></h3>
                 <p class="ad-index-soldby">Sold by <%= ad.user.name %></p>
                 <p class="ad-index-price"><%= number_to_currency(ad.price) %></p>
+                <p class="ad-index-created"><%= ad.created_at.strftime("%B %d, %Y") %></p>
                 <% if ad_author(ad) %>
                     <%= link_to "Edit", edit_ad_path(ad), class: 'btn btn-primary' %>
                     <%= link_to 'Delete', ad, method: :delete, data: { confirm: 'Are you sure ?'}, class: 'btn btn-primary' %>

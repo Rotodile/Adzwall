@@ -337,12 +337,16 @@ body {
     .ad-index-grid {
         padding-top: 4px;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(240px, 9fr));
         .ad {
             border-left: 0;
             border-top: 0;
             position: relative;
-            min-height: 375px;
+            min-height: 300px;
+            margin: 5px;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+            transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+            border: 3px outset #5680E9;
             .title {
                 line-height: 1.6rem;
             }
@@ -353,17 +357,31 @@ body {
             }
         }
         .ad-second {
+            margin: 10px;
+            h3 {
+                font-size: 1.5rem !important;
+            }
             .ad-index-soldby {
                 color: grey;
+                margin-bottom: 0;
             }
             .ad-index-price {
-                padding-top: 2px;
                 float: right;
+                font-size: 1.5rem !important;
+                position: relative;
+                top: 15px;
+            }
+            .ad-index-created {
+                margin: 0;
+                padding: 0;
+                position: relative;
+                top: 20px;
+                color: grey;
             }
         }
         .ad-thumb {
             position: relative;
-            max-height: 150px;
+            max-height: 200px;
             overflow: hidden;
             img {
                 max-width: 100%;
