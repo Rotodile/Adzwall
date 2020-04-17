@@ -232,6 +232,10 @@ body {
 // Ad New and Edit page styling
 
 .ad-container {
+    margin-top: 60px;
+    .ad-form-price {
+        margin-top: -8px;
+    }
     .ad-h1 {
         color: #5AB9EA;
         font-weight: bold;

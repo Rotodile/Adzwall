@@ -17,9 +17,6 @@
           <%= f.input_field :brand, required: true, placeholder: '* Brand', class: 'form-control brand-ad ad-input', wrapper: false %>
         </div>
         <div class="col">
-          <%= f.input :price, required: true, placeholder: 'Price', input_html: { class: "form-control ad-input", maxlength: 7  }, wrapper: false, label_html: { class:"label" } %>
-        </div>
-        <div class="col">
           <div class="control has-icons-left">
             <br />
             <span class="select">
@@ -38,7 +35,11 @@
           <%= f.input_field :description, placeholder: 'Description',class: 'form-control desp-ad ad-input', rows: '3', required: true, input_html: { class:"textarea" }, wrapper: false, label_html: { class:"label" } %>
         </div>
       </div>
-      <div class="field">
+      <div class="form-row">
+        <div class="col">
+          <%= f.input :price, required: true, placeholder: 'Price', input_html: { class: "form-control ad-input ad-form-price", maxlength: 7  }, wrapper: false, label_html: { class:"label" } %>
+        </div>
+        <div class="col-7">
           <div class="control has-icons-left">
             <br />
             <span class="select">
@@ -49,6 +50,7 @@
             </span>
           </div>
         </div>
+      </div>
       <br />
       <div class="custom-file ad-image-div">
         <%= f.input :image, as: :file, type: 'file',id: 'customFile', input_html: { class:"custom-file-input ad-image" }, label: false, wrapper: false %>
