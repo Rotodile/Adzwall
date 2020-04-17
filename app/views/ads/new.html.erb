@@ -3,6 +3,8 @@
 
     <%= render 'form', ad: @ad %>
 
-    <%= link_to 'Back', ads_path, class: 'ad-render-link grey' %>
-    <%= link_to 'Cancel', ads_path, class:'button is-light', class: 'ad-render-link red' %>
+    <div class="ad-link">
+        <%= link_to 'Back', ads_path, class: 'ad-render-link grey' %>
+        <%= link_to 'Cancel', ads_path, class:'button is-light', class: 'ad-render-link red' %>
+    </div>
 </div>
