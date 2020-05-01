@@ -1,14 +1,30 @@
 <section class="ad-show container">
   <div class="row">
-    <div class="col-md-8">
-      <h1><%= @ad.title %></h1>
-
+    <div class="col-md-6">
       <div class="feature-image">
         <%= image_tag(@ad.image_url(:default)) %>
       </div>
+    </div>
 
+    <div class="col-md-6 second-col">
+      <h1><%= @ad.title %></h1>
+      <div>
+        <h4 class="text-center"><%= number_to_currency(@ad.price) %></h4>
+        <p class="text-center">Sold by
+          <% if user_signed_in? %>
+            <% if @other_user != current_user %>
+              <%= link_to(user_chats_path(current_user, :other_user => @other_user.id), method: :post) do %>
+                <%= @other_user.name %>
+              <% end %>
+            <% else %>
+              You
+            <% end %>
+          <% else %>
+            <%= @ad.user.name %>
+          <% end %>
+        </p>
+      </div>
       <div class="content">
-
         <div class="show-desp-box">
           <h3>Description</h3>
           <%= @ad.description %>
@@ -36,30 +52,10 @@
             </tr>
         </table>
       </div>
-    </div>
-
-    <div class="col-md-4 second-col">
-      <div>
-        <h4 class="text-center"><%= number_to_currency(@ad.price) %></h4>
-        <p class="text-center">Sold by
-          <% if user_signed_in? %>
-            <% if @other_user != current_user %>
-              <%= link_to(user_chats_path(current_user, :other_user => @other_user.id), method: :post) do %>
-                <%= @other_user.name %>
-              <% end %>
-            <% else %>
-              You
-            <% end %>
-          <% else %>
-            <%= @ad.user.name %>
-          <% end %>
-        </p>
-      </div>
+      <%= link_to bookmark_text, bookmarks_update_path(ad: @ad), id: 'bookmark_link', remote: true %>
+      <% if ad_author(@ad) %>
+        <%= link_to 'Edit', edit_ad_path(@ad), class: 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
-
-  <%= link_to bookmark_text, bookmarks_update_path(ad: @ad), id: 'bookmark_link', remote: true %>
-  <% if ad_author(@ad) %>
-    <%= link_to 'Edit', edit_ad_path(@ad), class: 'btn btn-primary' %>
-  <% end %>
 </section>

@@ -354,6 +354,8 @@ body {
 // Ad index page styling
 
 .ad-index-container {
+    margin-top: 80px;
+    margin-bottom: 20px;
     .ad-index-header {
         font-weight: 700;
         color: #8860D0;
@@ -362,6 +364,7 @@ body {
     .ad-index-grid {
         padding-top: 4px;
         display: grid;
+        margin-bottom: 20px;
         grid-template-columns: repeat(auto-fill, minmax(240px, 9fr));
         .ad {
             border-left: 0;
@@ -443,5 +446,21 @@ body {
         width: 20px !important;
         height: 20px !important;
         border-radius: 100% !important;
+    }
+}
+
+// Ad show page styling
+
+.ad-show {
+    margin-top: 80px;
+    .feature-image {
+        position: relative;
+        top: -50px;
+        right: 160px;
+        img {
+            object-fit: cover;
+            width: 700px;
+            height: 700px;
+        }
     }
 }
