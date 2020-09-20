@@ -1,8 +1,3 @@
-<style>
-body {
-    overflow-y: hidden;
-}
-</style>
 <section class="ad-show container">
   <div class="row">
     <div class="col-md-6 hit-300">
@@ -12,32 +7,18 @@ body {
     </div>
 
     <div class="col-md-6 second-col">
-      <h1><%= @ad.title %></h1>
-      <div>
-        <h4 class="text-center"><%= number_to_currency(@ad.price) %></h4>
-        <p class="text-center">Sold by
-          <% if user_signed_in? %>
-            <% if @other_user != current_user %>
-              <%= link_to(user_chats_path(current_user, :other_user => @other_user.id), method: :post) do %>
-                <%= @other_user.name %>
-              <% end %>
-            <% else %>
-              You
-            <% end %>
-          <% else %>
-            <%= @ad.user.name %>
-          <% end %>
-        </p>
+      <div class="jumbotron">
+        <h1><%= @ad.title %></h1>
       </div>
+      <h3><%= number_to_currency(@ad.price) %></h3>
       <div class="content">
         <div class="show-desp-box">
-          <h3>Description</h3>
-          <%= @ad.description %>
+          <hr>
+          <p  class="product-description"><%= @ad.description %></p>
         </div>
 
-        <h3>Product Specs</h3>
-
         <table class="table is-narrow">
+
           <% if @ad.condition %>
             <tr>
               <td><strong>Condition:</strong></td>
@@ -51,10 +32,29 @@ body {
               <td><%= @ad.brand %></td>
             </tr>
           <% end %>
-            <tr>
-              <td><strong>Category:</strong></td>
-              <td><%= raw @ad.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
-            </tr>
+          
+          <tr>
+            <td><strong>Category:</strong></td>
+            <td><%= raw @ad.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Sold by:</strong></td>
+            <td>
+              <% if user_signed_in? %>
+                <% if @other_user != current_user %>
+                  <%= link_to(user_chats_path(current_user, :other_user => @other_user.id), method: :post) do %>
+                  <%= @other_user.name %>
+                  <% end %>
+                <% else %>
+                  You
+                <% end %>
+              <% else %>
+                <%= @ad.user.name %>
+              <% end %>
+            </td>
+          </tr>
+
         </table>
       </div>
       <%= link_to bookmark_text, bookmarks_update_path(ad: @ad), id: 'bookmark_link', remote: true %>

@@ -453,14 +453,40 @@ body {
 
 .ad-show {
     margin-top: 80px;
+    max-width: 100%;
+    .second-col {
+        padding-left: 50px;
+        padding-right: 40px;
+        .product-description {
+            margin-bottom: 35px;
+            margin-top: 30px;
+            color: #282c3f;
+            font-size: 46px;
+        }
+        .jumbotron {
+            background-color: white !important;
+            padding: 0 !important;
+            font-family: Impact, 'Arial Narrow Bold', sans-serif;
+            h1 {
+                font-size: 3rem !important;
+            }
+        }
+        h3 {
+            font-family: Impact, 'Arial Narrow Bold', sans-serif;
+            color: #6b6b6b;
+        }
+    }
     .feature-image {
-        position: relative;
-        top: -50px;
-        right: 160px;
+        position: fixed;
+        top: 15px;
+        left: 0%;
         img {
             object-fit: cover;
-            width: 700px;
-            height: 700px;
+            width: 720px;
+            height: 742px;
+            margin-left: -5px;
+            box-shadow: 0px 0px 12px 10px rgba(0, 0, 0, 0.05);
+            background-color: white;    
         }
     }
 }
