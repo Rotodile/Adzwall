@@ -22,25 +22,25 @@
           <% if @ad.condition %>
             <tr>
               <td><strong>Condition:</strong></td>
-              <td><%= @ad.condition %></td>
+              <td class="spec"><%= @ad.condition %></td>
             </tr>
           <% end %>
 
           <% if @ad.brand %>
             <tr>
               <td><strong>Brand:</strong></td>
-              <td><%= @ad.brand %></td>
+              <td class="spec"><%= @ad.brand %></td>
             </tr>
           <% end %>
           
           <tr>
             <td><strong>Category:</strong></td>
-            <td><%= raw @ad.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
+            <td class="spec"><%= raw @ad.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
           </tr>
 
           <tr>
             <td><strong>Sold by:</strong></td>
-            <td>
+            <td class="spec">
               <% if user_signed_in? %>
                 <% if @other_user != current_user %>
                   <%= link_to(user_chats_path(current_user, :other_user => @other_user.id), method: :post) do %>
@@ -57,10 +57,12 @@
 
         </table>
       </div>
-      <%= link_to bookmark_text, bookmarks_update_path(ad: @ad), id: 'bookmark_link', remote: true %>
-      <% if ad_author(@ad) %>
-        <%= link_to 'Edit', edit_ad_path(@ad), class: 'btn btn-primary' %>
-      <% end %>
+      <div class="bookmark-button">
+        <%= link_to bookmark_text, bookmarks_update_path(ad: @ad), id: 'bookmark_link', remote: true %>
+        <% if ad_author(@ad) %>
+          <%= link_to 'Edit', edit_ad_path(@ad), class: 'btn btn-primary' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </section>
