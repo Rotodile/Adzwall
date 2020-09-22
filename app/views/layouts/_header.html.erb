@@ -10,13 +10,9 @@
             Categories
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class='dropdown-item'>Vehicles</a>
-            <a class='dropdown-item'>Clothes</a>
-            <a class='dropdown-item'>Kids</a>
-            <a class='dropdown-item'>Animals</a>
-            <a class='dropdown-item'>Electronics</a>
-            <a class='dropdown-item'>Furniture</a>
-            <a class='dropdown-item'>Beauty</a>
+            <% tag_cloud Ad.tag_counts, %w[s m l] do |tag| %>
+              <%= link_to tag.name, tag_path(tag.name), class: 'dropdown-item' %>
+            <% end %>
           </div>
         </li>
       </span>
