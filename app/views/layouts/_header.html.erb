@@ -24,6 +24,7 @@
           <% if user_signed_in? %>
             <%= link_to 'Account Settings', edit_user_registration_path, class: 'dropdown-item' %>
             <%= link_to 'New Ad', new_ad_path, class: 'dropdown-item' %>
+            <%= link_to 'Your Bookmarks', '/bookmarks', class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           <% else %>

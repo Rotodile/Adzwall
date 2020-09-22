@@ -1,35 +1,9 @@
 <div class="container ad-index-container">
   
-  <div id="tag_cloud">
+ <!-- <div id="tag_cloud">
     <% tag_cloud Ad.tag_counts, %w[s m l] do |tag, css_class| %>
       <%= link_to tag.name, tag_path(tag.name), class: css_class %>
     <% end %>
-  </div>
-
-  <% if user_signed_in? %>
-    <h1 class="text-center ad-index-header">YOUR BOOKMARKED ADS</h1>
-
-    <div class="ad-index-grid">
-      <% current_user.bookmarks.each do |bookmark| %>
-        <div class="ad">
-          <div class='ad-thumb'>
-            <%= link_to image_tag(bookmark.ad.image_url(:thumb)), bookmark.ad %>
-            <% if bookmark.ad.condition? %>
-              <div class="condition">
-                <span><%= bookmark.ad.condition %></span>
-              </div>
-            <% end %>
-          </div>
-
-          <div class="ad-second">
-            <h3><%= bookmark.ad.title %></h3>
-            <p class="ad-index-soldby">Sold by <%= bookmark.ad.user.name %></p>
-            <p class="ad-index-price"><%= number_to_currency(bookmark.ad.price) %></p>
-          </div>
-
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+  </div>-->
   <%= render 'shared/ads' %>
 </div>

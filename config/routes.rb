@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'categories/:tag', to: 'ads#index', as: :tag
   get 'bookmarks/update'
   get '/messages', to: 'chats#index'
+  get '/bookmarks', to: 'bookmarks#index'
 
   resources :ads
   resources :messages, only: [:create]
