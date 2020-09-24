@@ -531,5 +531,22 @@ body {
 
 .user-edit-container {
     margin-top: 80px;
-    text-align: center;
+    width: 600px;
+    input {
+        padding-left: 5px;
+        border-bottom: 2px solid #adadad !important;
+        border: none;
+        border-radius: 0%;
+        height: 45px;
+    }
+    input:focus {
+        outline: none !important;
+        box-shadow: none;
+        border-image-source: linear-gradient(to right, #5AB9EA, #5680E9, #8860D0);
+        border-width: 5pt;
+        border-image-slice: 1;
+    }
+    .hint {
+        margin-left: 50px;
+    }
 }
