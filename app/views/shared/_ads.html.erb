@@ -4,7 +4,11 @@
     <% @ads.each do |ad| %>
         <div class="ad">
             <div class='ad-thumb'>
-                <%= link_to image_tag(ad.image_url(:thumb)), ad %>
+               <% if ad.image.present? %>
+                      <%= link_to image_tag(ad.image_url(:thumb)), ad %>
+                 <% else %>
+                      <%= image_tag('https://res.cloudinary.com/malaika/image/upload/v1573146026/image-placeholder.jpg', class:'img-fluid') %>
+                <% end %>
                 <% if ad.condition? %>
                     <div class="condition">
                         <span><%= ad.condition %></span>
