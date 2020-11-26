@@ -7,7 +7,7 @@
       <% current_user.bookmarks.each do |bookmark| %>
         <div class="ad">
           <div class='ad-thumb'>
-            <%= link_to image_tag(bookmark.ad.image_url(:thumb)), bookmark.ad %>
+            <%= link_to cl_image_tag(bookmark.ad.image_url(:thumb)), bookmark.ad %>
             <% if bookmark.ad.condition? %>
               <div class="condition">
                 <span><%= bookmark.ad.condition %></span>
