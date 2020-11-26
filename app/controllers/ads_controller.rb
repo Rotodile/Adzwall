@@ -39,7 +39,7 @@ class AdsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @ad.errors, status: :unprocessable_entity }
-      end
+     end
     end
   end
 

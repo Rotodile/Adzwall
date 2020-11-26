@@ -35,6 +35,8 @@ gem 'simple_form'
 gem 'acts-as-taggable-on'
 gem 'jquery-rails'
 gem "actionview", ">= 5.2.4.2"
+gem 'figaro'
+gem 'cloudinary', '~> 1.18', '>= 1.18.1'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
