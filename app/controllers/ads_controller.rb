@@ -36,12 +36,10 @@ class AdsController < ApplicationController
       if @ad.save
         format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
         format.json { render :show, status: :created, location: @ad }
-        render json: { result: true, msg: ' the image is uploaded!'}, status: :created
       else
         format.html { render :new }
         format.json { render json: @ad.errors, status: :unprocessable_entity }
-        render json: {result: false, user: @user.errors }, status: :unprocessable_entity 
-      end
+     end
     end
   end
 
