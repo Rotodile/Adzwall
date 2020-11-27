@@ -1,0 +1,30 @@
+<h1 class="text-center ad-index-header">LATEST ADS</h1>
+
+<div class="ad-index-grid">
+    <% @ads.each do |ad| %>
+        <div class="ad">
+            <div class='ad-thumb'>
+               <% if ad.image.present? %>
+                      <%= link_to cl_image_tag(ad.image_url(:thumb)), ad %>
+                 <% else %>
+                      <%= cl_image_tag('https://res.cloudinary.com/malaika/image/upload/v1573146026/image-placeholder.jpg', class:'img-fluid') %>
+                <% end %>
+                <% if ad.condition? %>
+                    <div class="condition">
+                        <span><%= ad.condition %></span>
+                    </div>
+                <% end %>
+            </div>
+            <div class="ad-second">
+                <h3><%= ad.title %></h3>
+                <p class="ad-index-soldby">Sold by <%= ad.user.name %></p>
+                <p class="ad-index-price"><%= number_to_currency(ad.price) %></p>
+                <p class="ad-index-created"><%= ad.created_at.strftime("%B %d, %Y") %></p>
+            </div>
+           <!-- <% if ad_author(ad) %>
+                <%= link_to "Edit", edit_ad_path(ad), class: 'btn btn-primary' %>
+                <%= link_to 'Delete', ad, method: :delete, data: { confirm: 'Are you sure ?'}, class: 'btn btn-primary' %>
+            <% end %>-->
+        </div>
+    <% end %>
+</div>

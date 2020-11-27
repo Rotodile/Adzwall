@@ -1,0 +1,54 @@
+<div class="container text-center signup-container">
+  <h2 class='signup-header'>Sign up</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <br />
+      <%= f.input_field :name,
+                required: true,
+                autofocus: true,
+                placeholder: 'Name',
+                input_html: { autocomplete: "name" }, class: 'form-control signup-input' %>
+      <br />
+      <%= f.input_field :email,
+                required: true,
+                autofocus: true,
+                placeholder: 'Email',
+                input_html: { autocomplete: "email" }, class: 'form-control signup-input' %>
+      <br />
+      <%= f.input_field :password,
+                required: true,
+                placeholder: 'Password',
+                input_html: { autocomplete: "new-password" }, class: 'form-control signup-input' %>
+      <br />
+      <%= f.input_field :password_confirmation,
+                required: true,
+                placeholder: 'Password Confirmation',
+                input_html: { autocomplete: "new-password" }, class: 'form-control signup-input' %>
+      <br />
+    </div>
+    <br />
+ 
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up", class: 'btn btn-primary signup-submit' %>
+    </div>
+  <% end %>
+
+  <p class='signup-render-link'>Already a user? <%= render "devise/shared/links" %></p>
+</div>
+
+<style>
+  html {
+    height: 100% !important;
+  }
+  body {
+    background: linear-gradient(to bottom right, #c6e9fb, #d3c8e6);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+</style>
+

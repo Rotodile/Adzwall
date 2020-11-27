@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class='nav-head'>
+    <%= link_to 'Adzwall', root_path, class: 'navbar-brand' %>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <span class='navbar-nav cat-section'>
+        <li class="nav-item dropdown cat-dropdown">
+          <a class="nav-link dropdown-toggle cat-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% tag_cloud Ad.tag_counts, %w[s m l] do |tag| %>
+              <%= link_to tag.name, tag_path(tag.name), class: 'dropdown-item' %>
+            <% end %>
+          </div>
+        </li>
+      </span>
+      <li class="nav-item dropdown header-account">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if user_signed_in? %>
+            <%= link_to 'Account Settings', edit_user_registration_path, class: 'dropdown-item' %>
+            <%= link_to 'New Ad', new_ad_path, class: 'dropdown-item' %>
+            <%= link_to 'Your Bookmarks', '/bookmarks', class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          <% else %>
+            <%= link_to 'Sign In', new_user_session_path, class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Create Account', new_user_registration_path, class: 'dropdown-item' %>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <form class="form-inline my-2 my-lg-0 header-search">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  </form>
+</nav>

@@ -1,0 +1,10 @@
+development:
+  adapter: async
+
+test:
+  adapter: async
+
+production:
+  adapter: redis
+  url: redis://redistogo:ee8a53d82ff36829f83a128fea8473fb@porgy.redistogo.com:10103/
+  channel_prefix: adzwall_production

@@ -1,0 +1,10 @@
+<div class="container ad-container">
+    <h1 class='ad-h1'>Editing Ad</h1>
+
+    <%= render 'form', ad: @ad %>
+
+    <div class="ad-link">
+        <%= link_to 'Back', ads_path, class: 'ad-render-link grey' %>
+        <%= link_to 'Cancel', ads_path, class:'ad-render-link red' %>
+    </div>
+</div>
