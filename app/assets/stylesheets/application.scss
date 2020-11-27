@@ -386,7 +386,12 @@ body {
         .ad-second {
             margin: 10px;
             h3 {
-                font-size: 1.5rem !important;
+                font-size: 1.5rem !important;      
+                width: 240px;
+	            text-overflow: ellipsis;
+	            display: block;
+	            white-space: nowrap;
+	            overflow: hidden;
             }
             .ad-index-soldby {
                 color: grey;
