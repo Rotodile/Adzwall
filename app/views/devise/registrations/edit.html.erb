@@ -51,10 +51,11 @@
         </div>
       <% end %>
       <br />
-      <h3>Cancel my account</h3>
-      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-      <%= link_to "Back", :back %>
+      <br />
+      <h3>Delete account</h3>
+      <div class="user-delete">
+        <p><span>Delete this account:</span> <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      </div>
     </div>
   </div>
 </div>

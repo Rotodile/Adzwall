@@ -553,6 +553,15 @@ body {
         border: none;
         border-radius: 0%;
         height: 45px;
+        color: #696E79;
+    }
+    label {
+        color: #696E79;
+        font-weight: 600;
+        margin-bottom: 0 !important;
+        abbr {
+            display: none;
+        }
     }
     input:focus {
         outline: none !important;
@@ -576,5 +585,32 @@ body {
         border: none;
         height: 46px;
         margin-top: 20px;
+        color: white;
+        border-bottom: none !important;
+    }
+    .user-delete {
+        border: 1px solid #fb4c4c;
+        padding: 10px;
+        
+        p {
+            color: #696E79;
+            font-weight: 600;
+            margin-top: 1rem !important;
+            a {
+                float: right;
+                background-color: #fb4c4c !important;
+                padding: 10px;
+                font-weight: 400;
+                padding-left: 20px;
+                padding-right: 20px;
+                color: white;
+                position: relative;
+                bottom: 10px;
+            }
+            a:hover {
+                text-decoration: none;
+                background-color: #d24444 !important;
+            }
+        }
     }
 }
