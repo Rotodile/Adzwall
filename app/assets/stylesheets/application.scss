@@ -316,8 +316,8 @@ body {
     }
     .red {
         position: relative;
-        left: 10px;
-        width: 283px;
+        margin-left: 10px;
+        width: 50%;
         background-color: #5680E9;
         text-align: center;
     }
@@ -327,8 +327,7 @@ body {
     }
     .grey {
         background-color: #5680E9;
-        left: 5px;
-        width: 283px;
+        width: 50%;
         text-align: center;
     }
     .grey:hover {
@@ -343,11 +342,11 @@ body {
         margin-bottom: 10px;
     }
     .ad-link {
-        max-width: 565px;
+        max-width: 570px;
         display: flex;
         flex-direction: row;
         justify-content: center;
-        margin-left: -5px;
+        margin: 0 !important;
     }
 }
 
