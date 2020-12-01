@@ -521,10 +521,12 @@ body {
         position: fixed;
         top: 15px;
         left: 0%;
+        width: 50%;
         img {
             object-fit: cover;
             width: 720px;
-            height: 742px;
+            height: 100vh;
+            width: 100%;
             margin-left: -5px;
             box-shadow: 0px 0px 12px 10px rgba(0, 0, 0, 0.05);
             background-color: white;    
@@ -611,6 +613,27 @@ body {
                 text-decoration: none;
                 background-color: #d24444 !important;
             }
+        }
+    }
+}
+
+// Media queries //
+
+@media (max-width: 767px) {
+    .ad-show {
+        margin-top: 24px;
+        .feature-image {
+            position: relative;
+            width: 100%;
+            img {
+                margin-left: 0;
+            }
+        }
+        .second-col {
+            padding-top: 50px;
+        }
+        .image-col {
+            padding: 0 !important;
         }
     }
 }
